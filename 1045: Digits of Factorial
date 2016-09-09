@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+#define ll unsigned long long int
+using namespace std;
+double f[1000006],o,p;
+ll n,m;
+int main()
+{
+      memset(f,0,sizeof(f));
+      for(int i=1; i<=1000000; i++)
+            f[i]=f[i-1]+(log(i));
+ 
+ 
+            cin>>o;
+  for(ll j=1; j<=o; j++)
+  {
+            cin>>n>>m;
+ 
+            cout<<"Case "<<j<<": "<<(ll)floor((f[n]/log(m))+1)<<endl;
+ 
+  }
+}
