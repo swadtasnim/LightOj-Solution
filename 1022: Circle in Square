@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+#define max 1000009
+#define lli  unsigned long long int
+#define pi  2*acos(0.0)
+ 
+using namespace std;
+long double  a,r,c;
+ 
+ 
+ 
+int main()
+{
+     cin>>c;
+ 
+         lli i;
+          for( i=0; i<c; i++)
+ 
+          {
+ 
+                  cin>>a;
+ 
+ 
+ 
+ 
+          cout<<"Case "<<i+1<<": "<<fixed<<setprecision(2)<<((2.0*a)*(2.0*a))-pi*a*a+.000000001<<endl;}
+ 
+}
+ 
