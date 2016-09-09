@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+map<int,int>p;
+ 
+ll a[100000];
+ 
+int main()
+{
+    int m,n,s,l,c,j;
+    scanf("%d",&c);
+    for(int k=1; k<=c; k++)
+    {
+        cout<<"Case "<<k<<":\n";
+        cin>>s>>l;
+        for(int i=0; i<s; i++)
+        {
+            scanf("%d", &a[i]);
+ 
+        }
+ 
+//int a[]={1,4,6,7,10};
+//sort(a,a+s);
+ 
+        while(l--)
+        {
+ 
+ 
+//cin>>m>>n;
+            scanf("%d%d", &m, &n);
+ 
+            printf("%d\n",abs(((lower_bound(a,a+s,m))-a)-((upper_bound(a,a+s,n)-a))));
+// cout<<upper_bound(a,a+5,n)-a<<endl;
+ 
+        }
+    }
+ 
+}
+ 
