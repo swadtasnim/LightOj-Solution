@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+#define ll   long long int
+#define mem(x,y) memset(x,y,sizeof(x))
+#define M   10000
+#define inf (1<<30)
+using namespace std;
+ 
+int dp[25][4];
+vector<int>a[25];
+  int n,v,sum;
+    int p;
+    int m3(int x,int y, int z)
+    {
+          return min(min(x,y),z);
+    }
+int call(int i, int j)
+{     if(i>=0 && i<n && j>=0 && j<3)
+      {
+            if(dp[i][j]!=-1)
+            return dp[i][j];
+ 
+ 
+ 
+ 
+             int p=inf;
+             for(int k=0; k<3; k++)
+             {
+                   if(k!=j)
+ 
+                  p=min(p,call(i+1,k)+a[i][j]);
+             }
+ 
+ 
+ 
+            return dp[i][j]=p;
+}
+ 
+      else
+      return 0;
+ 
+}
+ 
+int main()
+{    int m;
+     scanf("%d",&m);
+     int q=1;
+     while(m--)
+    {mem(dp,-1);
+         
+           scanf("%d",&n);
+ 
+       for(int i=0; i<n; i++)
+       {   a[i].clear();
+             for(int j=0; j<3; j++)
+             {scanf("%d", &v);
+             a[i].push_back(v);}
+       }
+ 
+ 
+ 
+      printf("Case %d: %d\n",q,m3(call(0,0),call(0,1),call(0,2)));
+      q++;
+       
+ 
+ 
+ 
+       }
+ 
+}
+ 
