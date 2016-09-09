@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+ 
+using namespace std;
+vector<int>v[100];
+int vis[20][20];
+int fx[]= {0,-1,0,1};
+int fy[]= {1,0,-1,0};
+string s[21];
+int c,h,w,cn;
+int dfs(int rtx,int rty)
+{
+ 
+ 
+ 
+    vis[rtx][rty]=1;
+ 
+    cn++;
+ 
+    for(int i=0; i<4; i++)
+    {
+        int v1=rtx+fx[i];
+        int v2=rty+fy[i];
+ 
+        if( (v1<h && v1>=0 )&& (v2<w && v2>=0) && vis[v1][v2]==0 && s[v1][v2]!='#')
+        {
+            vis[v1][v2]=1;
+ 
+ 
+ 
+ 
+            dfs(v1,v2);
+        }
+    }
+}
+ 
+int main()
+{
+    int m,n,nm=1;
+ 
+    cin>>c;
+    int rtx,rty;
+    while(c--)
+    {
+        cin>>w>>h;
+ 
+ 
+        for(int i=0; i<h; i++)
+        {
+            cin>>s[i];
+            for(int j=0; j<s[i].size(); j++)
+                if(s[i][j]=='@')
+                {
+                    rtx=i;
+                    rty=j;
+                }
+        }
+        cn=0;
+        memset(vis,0, sizeof(vis));
+        dfs(rtx,rty);
+        cout<<"Case "<<nm<<": "<<cn<<endl;
+ 
+        nm++;
+ 
+        /*for(int i=1; i<=10; i++)
+        {
+        cin>>m>>n;
+        v[m].push_back(n);
+        v[n].push_back(m);
+        }
+ 
+        bfs(1);}*/
+ 
+    }
+}
+ 
