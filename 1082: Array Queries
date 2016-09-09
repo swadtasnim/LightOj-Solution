@@ -1,0 +1,71 @@
+#include<bits/stdc++.h>
+#define ll     int
+#define inf 1000000000
+#define MAXN 50000
+
+using namespace std;
+ll tree[500020],v[100010];
+ll query(ll node, ll b, ll e, ll i, ll j)
+{
+          if(i>e || j<b || b>e)
+                    return 1000000000;
+          if(b>=i && e<=j)
+                    {      //cout<<tree[node]<<endl;
+                              return tree[node];}
+
+          return min(query(2*node,b,(b+e)/2,i,j),query(2*node +1,((b+e)/2)+1,e,i,j));
+}
+
+ll init(ll node,ll b,ll e)
+{
+       //if(b>e)
+        //return inf;
+
+          if(b==e)
+              {
+
+                          //cout<<tree[node]<<endl;
+                          return tree[node]=v[b];
+              }
+
+
+
+         return tree[node]= min(init(2*node,b,(b+e)/2),init(2*node +1,((b+e)/2)+1,e));
+
+
+}
+
+int main()
+{
+
+
+    ll n,a,b=1,i,j,t,q;
+    scanf("%d",&t);
+    //cout<<endl;
+    while(t--)
+    { //cout<<"\n";
+    scanf("%d%d",&n,&q);
+    ll m=n;
+
+    i=1;
+    while(i<=n)
+    {
+              scanf("%d",&v[i]);
+              i++;
+     }
+   // init(1,v,tree,1,m);
+   init(1,1,m);
+   cout<<"Case "<<b++<<":\n";
+    while(q--)
+    {
+              scanf("%d%d",&i,&j);
+              printf("%d\n",query(1,1,m,i,j));
+
+
+
+    }
+
+
+
+     }
+}
