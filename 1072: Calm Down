@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+#define ll  long long int
+using namespace std;
+ 
+double R,n,p;
+int main()
+{ ll o;
+  cin>>o;
+ 
+  for(ll j=1; j<=o; j++)
+  {
+            cin>>R>>n;
+ 
+             cout<<"Case "<<j<<": "<<fixed<<setprecision(10)<<R/(1/sin(acos(-1)/n) + 1)<<endl;
+ 
+ 
+ 
+  }
+}
+ 
