@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+#define ll       long long int
+#define SIZE 100005
+using namespace std;
+
+
+ll n;
+vector<ll>v,m;
+
+int main()
+{ m.push_back(1);
+  m.push_back(1);
+   for(int i=2; i<=20; i++)
+          {m.push_back(i*m[i-1]);
+          //cout<<m[i]<<endl;
+          }
+
+
+ ll l,k=1;
+ cin>>l;
+ while(k<=l)
+{cin>>n;
+v.clear();
+
+ll i=20;
+
+
+          while(i>=0 && n>0)
+          {
+
+                     if(n>=m[i])
+                   {v.push_back(i);
+                   n-=m[i];
+                   //cout<<"n= "<<n<<endl;
+                   }
+                   i--;
+
+          }
+
+          cout<<"Case "<<k<<": ";
+if(n==0)
+{ll j;
+          for(j=v.size()-1; j>0; j--)
+          cout<<v[j]<<"!+";
+          cout<<v[j]<<"!\n";
+          }
+else
+cout<<"impossible\n";
+
+k++;
+}
+          return 0;
+}
