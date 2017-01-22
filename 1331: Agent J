@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+#define ll       long long int
+#define SIZE 100005
+using namespace std;
+
+double area(double a,double b, double c)
+{
+       double p=(a+b+c)/2;
+
+
+          return sqrt(p*(p-a)*(p-b)*(p-c));
+
+}
+
+double angle(double a,double b, double c)
+{
+          return acos((a*a+b*b-c*c)/(2*a*b));
+}
+
+double areac(double r, double t)
+{
+     return r*r*t*0.5;
+}
+int main()
+{
+          double r1,r2,r3,l;
+          cin>>l;
+          ll i=1;
+          while(i<=l)
+          {
+                      cin>>r1>>r2>>r3;
+                      double tri=area(r1+r2,r1+r3,r2+r3);
+                      double x=angle(r1+r2,r1+r3,r2+r3);
+                      double y=angle(r2+r1,r2+r3,r1+r3);
+                      double z=angle(r3+r1,r3+r2,r1+r2);
+                      double res=tri-areac(r1,x)-areac(r2,y)-areac(r3,z);
+                    cout<<"Case "<<i<<": "<<fixed<<setprecision(8)<<res<<"\n";
+                    i++;
+          }
+
+
+
+          return 0;
+}
